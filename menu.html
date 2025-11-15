@@ -3,80 +3,98 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Our Menu | The Golden Spoon Bistro</title>
+    <title>Menu | Bella Tavola</title>
     <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script src="components/navbar.js"></script>
+    <script src="components/footer.js"></script>
 </head>
-<body>
-    <header>
-        <div class="container">
-            <div id="branding">
-                <h1><a href="index.html">The Golden Spoon Bistro</a></h1>
-            </div>
-            <nav>
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li class="current"><a href="menu.html">Menu</a></li>
-                </ul>
-            </nav>
+<body class="bg-amber-50 font-serif">
+    <custom-navbar></custom-navbar>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div class="text-center mb-16">
+            <h1 class="text-4xl md:text-5xl font-bold text-amber-800 mb-4">Our Menu</h1>
+            <div class="w-24 h-1 bg-amber-600 mx-auto"></div>
         </div>
-    </header>
 
-    <main class="container">
-        <section id="menu" class="content-section">
-            <h2>Our Menu</h2>
-
-            <!-- Appetizers Section -->
-            <div class="menu-category">
-                <h3>Appetizers</h3>
-                <div class="menu-item">
-                    <h3>Classic Bruschetta <span class="price">$9</span></h3>
-                    <p>Toasted baguette topped with fresh tomatoes, garlic, basil, and balsamic glaze.</p>
-                </div>
-                <div class="menu-item">
-                    <h3>Crispy Calamari <span class="price">$12</span></h3>
-                    <p>Lightly fried calamari served with a zesty marinara dipping sauce.</p>
-                </div>
-                <div class="menu-item">
-                    <h3>Stuffed Mushrooms <span class="price">$10</span></h3>
-                    <p>Mushroom caps filled with herbed cream cheese and baked to perfection.</p>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+            <!-- Antipasti -->
+            <div class="bg-white p-8 rounded-xl shadow-lg">
+                <h2 class="text-2xl font-bold text-amber-700 mb-6 pb-2 border-b border-amber-200">Antipasti</h2>
+                <div class="space-y-6">
+                    <div class="flex justify-between">
+                        <div>
+                            <h3 class="text-lg font-semibold text-gray-800">Bruschetta Classica</h3>
+                            <p class="text-gray-600 text-sm">Toasted bread topped with tomatoes, garlic, and fresh basil</p>
+                        </div>
+                        <span class="text-amber-700 font-bold">$9.50</span>
+                    </div>
+                    <div class="flex justify-between">
+                        <div>
+                            <h3 class="text-lg font-semibold text-gray-800">Caprese Salad</h3>
+                            <p class="text-gray-600 text-sm">Fresh mozzarella, tomatoes, and basil drizzled with balsamic glaze</p>
+                        </div>
+                        <span class="text-amber-700 font-bold">$12.00</span>
+                    </div>
+                    <div class="flex justify-between">
+                        <div>
+                            <h3 class="text-lg font-semibold text-gray-800">Calamari Fritti</h3>
+                            <p class="text-gray-600 text-sm">Crispy fried squid served with marinara sauce</p>
+                        </div>
+                        <span class="text-amber-700 font-bold">$14.50</span>
+                    </div>
                 </div>
             </div>
 
-            <!-- Main Courses Section -->
-            <div class="menu-category">
-                <h3>Main Courses</h3>
-                <div class="menu-item">
-                    <h3>Grilled Salmon <span class="price">$24</span></h3>
-                    <p>Atlantic salmon fillet grilled and served with roasted asparagus and lemon butter sauce.</p>
-                </div>
-                <div class="menu-item">
-                    <h3>Steak Frites <span class="price">$28</span></h3>
-                    <p>A juicy 8oz sirloin steak served with crispy french fries and a side of house salad.</p>
-                </div>
-                <div class="menu-item">
-                    <h3>Pasta Primavera <span class="price">$18</span></h3>
-                    <p>Penne pasta tossed with fresh seasonal vegetables in a light garlic and olive oil sauce.</p>
-                </div>
-            </div>
-            
-            <!-- Desserts Section -->
-            <div class="menu-category">
-                <h3>Desserts</h3>
-                <div class="menu-item">
-                    <h3>Chocolate Lava Cake <span class="price">$9</span></h3>
-                    <p>Warm chocolate cake with a molten center, served with vanilla bean ice cream.</p>
-                </div>
-                <div class="menu-item">
-                    <h3>Classic Tiramisu <span class="price">$8</span></h3>
-                    <p>Layers of coffee-soaked ladyfingers and creamy mascarpone, dusted with cocoa powder.</p>
+            <!-- Pasta -->
+            <div class="bg-white p-8 rounded-xl shadow-lg">
+                <h2 class="text-2xl font-bold text-amber-700 mb-6 pb-2 border-b border-amber-200">Pasta</h2>
+                <div class="space-y-6">
+                    <div class="flex justify-between">
+                        <div>
+                            <h3 class="text-lg font-semibold text-gray-800">Spaghetti Carbonara</h3>
+                            <p class="text-gray-600 text-sm">Classic Roman pasta with eggs, cheese, pancetta, and black pepper</p>
+                        </div>
+                        <span class="text-amber-700 font-bold">$18.00</span>
+                    </div>
+                    <div class="flex justify-between">
+                        <div>
+                            <h3 class="text-lg font-semibold text-gray-800">Pappardelle al Ragu</h3>
+                            <p class="text-gray-600 text-sm">Wide ribbon pasta with slow-cooked beef ragu</p>
+                        </div>
+                        <span class="text-amber-700 font-bold">$19.50</span>
+                    </div>
+                    <div class="flex justify-between">
+                        <div>
+                            <h3 class="text-lg font-semibold text-gray-800">Gnocchi al Pesto</h3>
+                            <p class="text-gray-600 text-sm">Homemade potato dumplings with basil pesto</p>
+                        </div>
+                        <span class="text-amber-700 font-bold">$17.50</span>
+                    </div>
                 </div>
             </div>
 
-        </section>
-    </main>
-
-    <footer>
-        <p>The Golden Spoon Bistro &copy; 2024</p>
-    </footer>
+            <!-- Pizza -->
+            <div class="bg-white p-8 rounded-xl shadow-lg">
+                <h2 class="text-2xl font-bold text-amber-700 mb-6 pb-2 border-b border-amber-200">Pizza</h2>
+                <div class="space-y-6">
+                    <div class="flex justify-between">
+                        <div>
+                            <h3 class="text-lg font-semibold text-gray-800">Margherita</h3>
+                            <p class="text-gray-600 text-sm">Tomato sauce, mozzarella, and fresh basil</p>
+                        </div>
+                        <span class="text-amber-700 font-bold">$16.00</span>
+                    </div>
+                    <div class="flex justify-between">
+                        <div>
+                            <h3 class="text-lg font-semibold text-gray-800">Quattro Formaggi</h3>
+                            <p class="text-gray-600 text-sm">Four cheese blend with mozzarella, gorgonzola, parmesan, and ricotta</p>
+                        </div>
+                        <span class="text-amber-700 font-bold">$18.50</span>
+                    </div>
+                    <div class="flex justify-between
 </body>
 </html>
