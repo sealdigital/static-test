@@ -3,73 +3,76 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Golden Spoon Bistro | Home</title>
+    <title>Bella Tavola | Authentic Italian Cuisine</title>
     <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script src="components/navbar.js"></script>
+    <script src="components/footer.js"></script>
 </head>
-<body>
-    <header>
-        <div class="container">
-            <div id="branding">
-                <h1><a href="index.html">The Golden Spoon Bistro</a></h1>
-            </div>
-            <nav>
-                <ul>
-                    <li class="current"><a href="index.html">Home</a></li>
-                    <li><a href="menu.html">Menu</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
+<body class="bg-amber-50 font-serif">
+    <custom-navbar></custom-navbar>
 
-    <section class="hero">
-        <div class="hero-content">
-            <h1>Authentic Flavors, Modern Twist</h1>
-            <p>Experience the finest dining in the heart of the city.</p>
-        </div>
-    </section>
-
-    <main class="container">
-        <!-- About Us Section -->
-        <section id="about" class="content-section">
-            <h2>Welcome to The Golden Spoon</h2>
-            <p>
-                Founded in 2010, The Golden Spoon Bistro has been a culinary landmark, celebrated for its commitment to fresh, locally-sourced ingredients and a warm, inviting atmosphere. Our philosophy is simple: create delicious, memorable dishes that bring people together. Whether you're here for a casual lunch, a romantic dinner, or a special celebration, we promise an experience that will delight your senses.
-            </p>
-        </section>
-
-        <!-- Photo Gallery -->
-        <section id="gallery" class="content-section">
-            <h2>Our Gallery</h2>
-            <div class="photo-gallery">
-                <img src="https://placehold.co/400x300/666/fff?text=Delicious+Pasta" alt="A plate of delicious pasta">
-                <img src="https://placehold.co/400x300/555/fff?text=Cozy+Ambiance" alt="The cozy interior of the restaurant">
-                <img src="https://placehold.co/400x300/444/fff?text=Gourmet+Steak" alt="A perfectly cooked gourmet steak">
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- Hero Section -->
+        <section class="relative h-96 flex items-center justify-center bg-cover bg-center rounded-xl overflow-hidden shadow-lg mb-16" style="background-image: url('http://static.photos/food/1200x630/42');">
+            <div class="absolute inset-0 bg-black bg-opacity-40"></div>
+            <div class="relative z-10 text-center px-4">
+                <h1 class="text-5xl md:text-6xl font-bold text-white mb-4">Bella Tavola</h1>
+                <p class="text-xl md:text-2xl text-amber-100 mb-8">Authentic Italian flavors in the heart of the city</p>
+                <a href="menu.html" class="inline-block bg-amber-600 hover:bg-amber-700 text-white font-bold py-3 px-6 rounded-full transition duration-300 transform hover:scale-105">View Our Menu</a>
             </div>
         </section>
 
-        <!-- Location & Hours Section -->
-        <section id="location" class="content-section">
-            <h2>Visit Us</h2>
-            <div class="location-info">
-                <div class="info-box">
-                    <h3>Our Address</h3>
-                    <p>123 Culinary Lane<br>Foodie City, FC 54321</p>
+        <!-- About Section -->
+        <section class="mb-16">
+            <div class="flex flex-col md:flex-row items-center gap-8">
+                <div class="md:w-1/2">
+                    <img src="http://static.photos/restaurant/1024x576/23" alt="Restaurant interior" class="rounded-xl shadow-lg w-full h-auto">
                 </div>
-                <div class="info-box">
-                    <h3>Opening Hours</h3>
-                    <p><strong>Mon - Fri:</strong> 11:00 AM - 10:00 PM</p>
-                    <p><strong>Sat - Sun:</strong> 9:00 AM - 11:00 PM</p>
+                <div class="md:w-1/2">
+                    <h2 class="text-3xl font-bold text-amber-800 mb-4">Our Story</h2>
+                    <p class="text-gray-700 mb-4">Founded in 1995 by Chef Giovanni Rossi, Bella Tavola brings the authentic taste of Italy to your table. Our recipes have been passed down through generations, using only the freshest ingredients imported directly from Italy.</p>
+                    <p class="text-gray-700 mb-6">Every dish is prepared with love and passion, just like nonna used to make. From our wood-fired pizzas to homemade pastas, we invite you to experience true Italian hospitality.</p>
+                    <a href="contact.html" class="text-amber-600 hover:text-amber-800 font-semibold flex items-center">
+                        <span>Visit Us</span>
+                        <i data-feather="arrow-right" class="ml-2 w-5 h-5"></i>
+                    </a>
                 </div>
             </div>
-            <div class="map-container">
-                <!-- Embedded Google Map -->
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2885.809315350314!2d-79.39515568450166!3d43.67022797912061!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x882b34a601243579%3A0x6e6e8e0d4a9f9b40!2sRoyal%20Ontario%20Museum!5e0!3m2!1sen!2sca!4v1676495513511!5m2!1sen!2sca" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </section>
+
+        <!-- Specialties Section -->
+        <section class="mb-16">
+            <h2 class="text-3xl font-bold text-center text-amber-800 mb-12">Our Specialties</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-xl transition duration-300">
+                    <div class="h-48 overflow-hidden rounded-lg mb-4">
+                        <img src="http://static.photos/food/640x360/5" alt="Pasta" class="w-full h-full object-cover">
+                    </div>
+                    <h3 class="text-xl font-bold text-amber-700 mb-2">Homemade Pasta</h3>
+                    <p class="text-gray-600">Handcrafted daily using traditional techniques and premium semolina flour.</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-xl transition duration-300">
+                    <div class="h-48 overflow-hidden rounded-lg mb-4">
+                        <img src="http://static.photos/food/640x360/7" alt="Pizza" class="w-full h-full object-cover">
+                    </div>
+                    <h3 class="text-xl font-bold text-amber-700 mb-2">Wood-Fired Pizza</h3>
+                    <p class="text-gray-600">Authentic Neapolitan-style pizzas cooked in our imported Italian oven.</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-xl transition duration-300">
+                    <div class="h-48 overflow-hidden rounded-lg mb-4">
+                        <img src="http://static.photos/food/640x360/9" alt="Dessert" class="w-full h-full object-cover">
+                    </div>
+                    <h3 class="text-xl font-bold text-amber-700 mb-2">Dolci</h3>
+                    <p class="text-gray-600">Irresistible Italian desserts including tiramisu, cannoli, and panna cotta.</p>
+                </div>
             </div>
         </section>
     </main>
 
-    <footer>
-        <p>The Golden Spoon Bistro &copy; 2024</p>
-    </footer>
+    <custom-footer></custom-footer>
+    <script>feather.replace();</script>
 </body>
 </html>
