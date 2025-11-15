@@ -4,97 +4,634 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Menu | Bella Tavola</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
-    <script src="https://unpkg.com/feather-icons"></script>
-    <script src="components/navbar.js"></script>
-    <script src="components/footer.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Source+Sans+Pro:wght@300;400;600&display=swap');
+        
+        body {
+            font-family: 'Source Sans Pro', sans-serif;
+        }
+        
+        .font-serif {
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .menu-category {
+            transition: transform 0.3s ease;
+        }
+        
+        .menu-category:hover {
+            transform: translateY(-5px);
+        }
+        
+        .menu-section {
+            scroll-margin-top: 80px;
+        }
+        
+        .active-category {
+            background-color: #d97706;
+            color: white;
+        }
+    </style>
 </head>
-<body class="bg-amber-50 font-serif">
-    <custom-navbar></custom-navbar>
+<body class="bg-amber-50">
+    <!-- Navigation -->
+    <nav class="bg-amber-800 text-white shadow-lg sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <a href="index.html" class="flex-shrink-0 flex items-center">
+                        <i class="fas fa-utensils text-amber-300 text-2xl mr-2"></i>
+                        <span class="font-serif text-xl font-bold">Bella Tavola</span>
+                    </a>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-4">
+                        <a href="index.html" class="px-3 py-2 rounded-md text-sm font-medium hover:bg-amber-700 transition duration-300">Home</a>
+                        <a href="index.html#about" class="px-3 py-2 rounded-md text-sm font-medium hover:bg-amber-700 transition duration-300">About</a>
+                        <a href="menu.html" class="px-3 py-2 rounded-md text-sm font-medium bg-amber-600 hover:bg-amber-500 transition duration-300">Menu</a>
+                        <a href="index.html#gallery" class="px-3 py-2 rounded-md text-sm font-medium hover:bg-amber-700 transition duration-300">Gallery</a>
+                        <a href="index.html#contact" class="px-3 py-2 rounded-md text-sm font-medium hover:bg-amber-700 transition duration-300">Contact</a>
+                        <a href="index.html#reservations" class="px-3 py-2 rounded-md text-sm font-medium hover:bg-amber-700 transition duration-300">Reservations</a>
+                    </div>
+                </div>
+                <div class="md:hidden">
+                    <button type="button" class="mobile-menu-button inline-flex items-center justify-center p-2 rounded-md text-amber-100 hover:text-white hover:bg-amber-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile menu -->
+        <div class="mobile-menu hidden md:hidden">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-amber-800">
+                <a href="index.html" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-amber-700">Home</a>
+                <a href="index.html#about" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-amber-700">About</a>
+                <a href="menu.html" class="block px-3 py-2 rounded-md text-base font-medium bg-amber-600 hover:bg-amber-500">Menu</a>
+                <a href="index.html#gallery" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-amber-700">Gallery</a>
+                <a href="index.html#contact" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-amber-700">Contact</a>
+                <a href="index.html#reservations" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-amber-700">Reservations</a>
+            </div>
+        </div>
+    </nav>
 
     <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <!-- Menu Header -->
         <div class="text-center mb-16">
-            <h1 class="text-4xl md:text-5xl font-bold text-amber-800 mb-4">Our Menu</h1>
-            <div class="w-24 h-1 bg-amber-600 mx-auto"></div>
+            <h1 class="text-4xl md:text-5xl font-bold text-amber-800 mb-4 font-serif">Our Menu</h1>
+            <p class="text-gray-600 max-w-2xl mx-auto">Experience the authentic flavors of Italy with our carefully crafted dishes made from traditional recipes and the finest ingredients.</p>
+            <div class="w-24 h-1 bg-amber-600 mx-auto mt-6"></div>
         </div>
 
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            <!-- Antipasti -->
-            <div class="bg-white p-8 rounded-xl shadow-lg">
-                <h2 class="text-2xl font-bold text-amber-700 mb-6 pb-2 border-b border-amber-200">Antipasti</h2>
-                <div class="space-y-6">
-                    <div class="flex justify-between">
-                        <div>
-                            <h3 class="text-lg font-semibold text-gray-800">Bruschetta Classica</h3>
-                            <p class="text-gray-600 text-sm">Toasted bread topped with tomatoes, garlic, and fresh basil</p>
+        <!-- Menu Navigation -->
+        <div class="flex overflow-x-auto py-4 mb-8 space-x-2 scrollbar-hide">
+            <a href="#antipasti" class="menu-nav-btn whitespace-nowrap px-4 py-2 bg-white rounded-full shadow-md hover:bg-amber-100 transition duration-300 font-medium">Antipasti</a>
+            <a href="#insalate" class="menu-nav-btn whitespace-nowrap px-4 py-2 bg-white rounded-full shadow-md hover:bg-amber-100 transition duration-300 font-medium">Insalate</a>
+            <a href="#pasta" class="menu-nav-btn whitespace-nowrap px-4 py-2 bg-white rounded-full shadow-md hover:bg-amber-100 transition duration-300 font-medium">Pasta</a>
+            <a href="#pizza" class="menu-nav-btn whitespace-nowrap px-4 py-2 bg-white rounded-full shadow-md hover:bg-amber-100 transition duration-300 font-medium">Pizza</a>
+            <a href="#secondi" class="menu-nav-btn whitespace-nowrap px-4 py-2 bg-white rounded-full shadow-md hover:bg-amber-100 transition duration-300 font-medium">Secondi</a>
+            <a href="#dolci" class="menu-nav-btn whitespace-nowrap px-4 py-2 bg-white rounded-full shadow-md hover:bg-amber-100 transition duration-300 font-medium">Dolci</a>
+            <a href="#bevande" class="menu-nav-btn whitespace-nowrap px-4 py-2 bg-white rounded-full shadow-md hover:bg-amber-100 transition duration-300 font-medium">Bevande</a>
+            <a href="#vini" class="menu-nav-btn whitespace-nowrap px-4 py-2 bg-white rounded-full shadow-md hover:bg-amber-100 transition duration-300 font-medium">Vini</a>
+        </div>
+
+        <!-- Menu Sections -->
+        <div class="space-y-16">
+            <!-- Antipasti Section -->
+            <section id="antipasti" class="menu-section">
+                <div class="flex items-center mb-8">
+                    <h2 class="text-3xl font-bold text-amber-800 font-serif">Antipasti</h2>
+                    <div class="ml-4 flex-grow h-px bg-amber-200"></div>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="bg-white p-6 rounded-xl shadow-lg menu-category">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl font-bold text-amber-700">Bruschetta Classica</h3>
+                            <span class="text-amber-700 font-bold text-lg">$9.50</span>
                         </div>
-                        <span class="text-amber-700 font-bold">$9.50</span>
+                        <p class="text-gray-600 mb-4">Toasted artisanal bread topped with fresh tomatoes, garlic, basil, and extra virgin olive oil</p>
                     </div>
-                    <div class="flex justify-between">
-                        <div>
-                            <h3 class="text-lg font-semibold text-gray-800">Caprese Salad</h3>
-                            <p class="text-gray-600 text-sm">Fresh mozzarella, tomatoes, and basil drizzled with balsamic glaze</p>
+                    <div class="bg-white p-6 rounded-xl shadow-lg menu-category">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl font-bold text-amber-700">Antipasto della Casa</h3>
+                            <span class="text-amber-700 font-bold text-lg">$16.00</span>
                         </div>
-                        <span class="text-amber-700 font-bold">$12.00</span>
+                        <p class="text-gray-600 mb-4">A selection of Italian cured meats, cheeses, marinated vegetables, and olives</p>
                     </div>
-                    <div class="flex justify-between">
-                        <div>
-                            <h3 class="text-lg font-semibold text-gray-800">Calamari Fritti</h3>
-                            <p class="text-gray-600 text-sm">Crispy fried squid served with marinara sauce</p>
+                    <div class="bg-white p-6 rounded-xl shadow-lg menu-category">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl font-bold text-amber-700">Calamari Fritti</h3>
+                            <span class="text-amber-700 font-bold text-lg">$14.50</span>
                         </div>
-                        <span class="text-amber-700 font-bold">$14.50</span>
+                        <p class="text-gray-600 mb-4">Crispy fried squid served with homemade marinara sauce and lemon wedges</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-lg menu-category">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl font-bold text-amber-700">Polpo alla Griglia</h3>
+                            <span class="text-amber-700 font-bold text-lg">$17.00</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">Grilled octopus with potatoes, cherry tomatoes, and a lemon-herb vinaigrette</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-lg menu-category">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl font-bold text-amber-700">Arancini di Riso</h3>
+                            <span class="text-amber-700 font-bold text-lg">$11.00</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">Sicilian-style rice balls stuffed with mozzarella, peas, and meat ragu, served with marinara</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-lg menu-category">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl font-bold text-amber-700">Focaccia della Nonna</h3>
+                            <span class="text-amber-700 font-bold text-lg">$8.50</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">Homemade focaccia bread with rosemary, sea salt, and extra virgin olive oil</p>
                     </div>
                 </div>
-            </div>
+            </section>
 
-            <!-- Pasta -->
-            <div class="bg-white p-8 rounded-xl shadow-lg">
-                <h2 class="text-2xl font-bold text-amber-700 mb-6 pb-2 border-b border-amber-200">Pasta</h2>
-                <div class="space-y-6">
-                    <div class="flex justify-between">
-                        <div>
-                            <h3 class="text-lg font-semibold text-gray-800">Spaghetti Carbonara</h3>
-                            <p class="text-gray-600 text-sm">Classic Roman pasta with eggs, cheese, pancetta, and black pepper</p>
+            <!-- Insalate Section -->
+            <section id="insalate" class="menu-section">
+                <div class="flex items-center mb-8">
+                    <h2 class="text-3xl font-bold text-amber-800 font-serif">Insalate</h2>
+                    <div class="ml-4 flex-grow h-px bg-amber-200"></div>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="bg-white p-6 rounded-xl shadow-lg menu-category">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl font-bold text-amber-700">Insalata Caprese</h3>
+                            <span class="text-amber-700 font-bold text-lg">$12.00</span>
                         </div>
-                        <span class="text-amber-700 font-bold">$18.00</span>
+                        <p class="text-gray-600 mb-4">Fresh mozzarella, vine-ripened tomatoes, and basil drizzled with balsamic glaze</p>
                     </div>
-                    <div class="flex justify-between">
-                        <div>
-                            <h3 class="text-lg font-semibold text-gray-800">Pappardelle al Ragu</h3>
-                            <p class="text-gray-600 text-sm">Wide ribbon pasta with slow-cooked beef ragu</p>
+                    <div class="bg-white p-6 rounded-xl shadow-lg menu-category">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl font-bold text-amber-700">Insalata di Rucola</h3>
+                            <span class="text-amber-700 font-bold text-lg">$10.50</span>
                         </div>
-                        <span class="text-amber-700 font-bold">$19.50</span>
+                        <p class="text-gray-600 mb-4">Arugula salad with shaved parmesan, cherry tomatoes, and lemon vinaigrette</p>
                     </div>
-                    <div class="flex justify-between">
-                        <div>
-                            <h3 class="text-lg font-semibold text-gray-800">Gnocchi al Pesto</h3>
-                            <p class="text-gray-600 text-sm">Homemade potato dumplings with basil pesto</p>
+                    <div class="bg-white p-6 rounded-xl shadow-lg menu-category">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl font-bold text-amber-700">Insalata della Casa</h3>
+                            <span class="text-amber-700 font-bold text-lg">$9.00</span>
                         </div>
-                        <span class="text-amber-700 font-bold">$17.50</span>
+                        <p class="text-gray-600 mb-4">Mixed greens with cucumbers, carrots, olives, and our house Italian dressing</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-lg menu-category">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl font-bold text-amber-700">Insalata di Mare</h3>
+                            <span class="text-amber-700 font-bold text-lg">$16.50</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">Seafood salad with shrimp, calamari, mussels, and clams in a lemon-herb dressing</p>
                     </div>
                 </div>
-            </div>
+            </section>
 
-            <!-- Pizza -->
-            <div class="bg-white p-8 rounded-xl shadow-lg">
-                <h2 class="text-2xl font-bold text-amber-700 mb-6 pb-2 border-b border-amber-200">Pizza</h2>
-                <div class="space-y-6">
-                    <div class="flex justify-between">
-                        <div>
-                            <h3 class="text-lg font-semibold text-gray-800">Margherita</h3>
-                            <p class="text-gray-600 text-sm">Tomato sauce, mozzarella, and fresh basil</p>
+            <!-- Pasta Section -->
+            <section id="pasta" class="menu-section">
+                <div class="flex items-center mb-8">
+                    <h2 class="text-3xl font-bold text-amber-800 font-serif">Pasta</h2>
+                    <div class="ml-4 flex-grow h-px bg-amber-200"></div>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="bg-white p-6 rounded-xl shadow-lg menu-category">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl font-bold text-amber-700">Spaghetti Carbonara</h3>
+                            <span class="text-amber-700 font-bold text-lg">$18.00</span>
                         </div>
-                        <span class="text-amber-700 font-bold">$16.00</span>
+                        <p class="text-gray-600 mb-4">Classic Roman pasta with eggs, pecorino cheese, pancetta, and black pepper</p>
                     </div>
-                    <div class="flex justify-between">
-                        <div>
-                            <h3 class="text-lg font-semibold text-gray-800">Quattro Formaggi</h3>
-                            <p class="text-gray-600 text-sm">Four cheese blend with mozzarella, gorgonzola, parmesan, and ricotta</p>
+                    <div class="bg-white p-6 rounded-xl shadow-lg menu-category">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl font-bold text-amber-700">Pappardelle al Ragu</h3>
+                            <span class="text-amber-700 font-bold text-lg">$19.50</span>
                         </div>
-                        <span class="text-amber-700 font-bold">$18.50</span>
+                        <p class="text-gray-600 mb-4">Wide ribbon pasta with slow-cooked beef ragu and a touch of tomato</p>
                     </div>
-                    <div class="flex justify-between
+                    <div class="bg-white p-6 rounded-xl shadow-lg menu-category">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl font-bold text-amber-700">Gnocchi al Pesto</h3>
+                            <span class="text-amber-700 font-bold text-lg">$17.50</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">Homemade potato dumplings with fresh basil pesto and pine nuts</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-lg menu-category">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl font-bold text-amber-700">Linguine alle Vongole</h3>
+                            <span class="text-amber-700 font-bold text-lg">$22.00</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">Linguine pasta with fresh clams, white wine, garlic, and parsley</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-lg menu-category">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl font-bold text-amber-700">Fettuccine Alfredo</h3>
+                            <span class="text-amber-700 font-bold text-lg">$16.50</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">Fettuccine pasta with our rich and creamy parmesan sauce</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-lg menu-category">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl font-bold text-amber-700">Penne all'Arrabbiata</h3>
+                            <span class="text-amber-700 font-bold text-lg">$15.00</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">Penne pasta in a spicy tomato sauce with garlic and red chili flakes</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-lg menu-category">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl font-bold text-amber-700">Lasagna della Casa</h3>
+                            <span class="text-amber-700 font-bold text-lg">$19.00</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">Traditional baked lasagna with layers of pasta, meat sauce, and cheeses</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-lg menu-category">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl font-bold text-amber-700">Risotto ai Funghi</h3>
+                            <span class="text-amber-700 font-bold text-lg">$18.50</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">Creamy Arborio rice with wild mushrooms, white wine, and parmesan</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Pizza Section -->
+            <section id="pizza" class="menu-section">
+                <div class="flex items-center mb-8">
+                    <h2 class="text-3xl font-bold text-amber-800 font-serif">Pizza</h2>
+                    <div class="ml-4 flex-grow h-px bg-amber-200"></div>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="bg-white p-6 rounded-xl shadow-lg menu-category">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl font-bold text-amber-700">Margherita</h3>
+                            <span class="text-amber-700 font-bold text-lg">$16.00</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">Tomato sauce, fresh mozzarella, basil, and extra virgin olive oil</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-lg menu-category">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl font-bold text-amber-700">Quattro Stagioni</h3>
+                            <span class="text-amber-700 font-bold text-lg">$20.00</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">Four seasons pizza with artichokes, mushrooms, ham, and olives</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-lg menu-category">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl font-bold text-amber-700">Diavola</h3>
+                            <span class="text-amber-700 font-bold text-lg">$18.50</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">Spicy salami, mozzarella, tomato sauce, and chili oil</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-lg menu-category">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl font-bold text-amber-700">Quattro Formaggi</h3>
+                            <span class="text-amber-700 font-bold text-lg">$18.50</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">Four cheese blend with mozzarella, gorgonzola, parmesan, and ricotta</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-lg menu-category">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl font-bold text-amber-700">Prosciutto e Funghi</h3>
+                            <span class="text-amber-700 font-bold text-lg">$19.00</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">Thinly sliced prosciutto, mushrooms, mozzarella, and tomato sauce</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-lg menu-category">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl font-bold text-amber-700">Vegetariana</h3>
+                            <span class="text-amber-700 font-bold text-lg">$17.50</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">Bell peppers, onions, mushrooms, olives, and artichokes on tomato sauce</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Secondi Section -->
+            <section id="secondi" class="menu-section">
+                <div class="flex items-center mb-8">
+                    <h2 class="text-3xl font-bold text-amber-800 font-serif">Secondi</h2>
+                    <div class="ml-4 flex-grow h-px bg-amber-200"></div>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="bg-white p-6 rounded-xl shadow-lg menu-category">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl font-bold text-amber-700">Osso Buco alla Milanese</h3>
+                            <span class="text-amber-700 font-bold text-lg">$32.00</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">Braised veal shanks with saffron risotto and gremolata</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-lg menu-category">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl font-bold text-amber-700">Branzino al Sale</h3>
+                            <span class="text-amber-700 font-bold text-lg">$28.50</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">Mediterranean sea bass baked in sea salt with herbs and lemon</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-lg menu-category">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl font-bold text-amber-700">Pollo alla Parmigiana</h3>
+                            <span class="text-amber-700 font-bold text-lg">$22.00</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">Breaded chicken breast with tomato sauce and melted mozzarella</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-lg menu-category">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl font-bold text-amber-700">Bistecca alla Fiorentina</h3>
+                            <span class="text-amber-700 font-bold text-lg">$42.00</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">Grilled T-bone steak seasoned with rosemary, sea salt, and olive oil</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-lg menu-category">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl font-bold text-amber-700">Agnello al Forno</h3>
+                            <span class="text-amber-700 font-bold text-lg">$34.00</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">Roasted lamb with potatoes, rosemary, and garlic</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-lg menu-category">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl font-bold text-amber-700">Salmone alla Griglia</h3>
+                            <span class="text-amber-700 font-bold text-lg">$26.00</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">Grilled salmon with lemon butter sauce and seasonal vegetables</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Dolci Section -->
+            <section id="dolci" class="menu-section">
+                <div class="flex items-center mb-8">
+                    <h2 class="text-3xl font-bold text-amber-800 font-serif">Dolci</h2>
+                    <div class="ml-4 flex-grow h-px bg-amber-200"></div>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="bg-white p-6 rounded-xl shadow-lg menu-category">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl font-bold text-amber-700">Tiramisu</h3>
+                            <span class="text-amber-700 font-bold text-lg">$8.50</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">Classic Italian dessert with layers of coffee-soaked ladyfingers and mascarpone cream</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-lg menu-category">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl font-bold text-amber-700">Panna Cotta</h3>
+                            <span class="text-amber-700 font-bold text-lg">$7.50</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">Silky vanilla custard served with a berry compote</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-lg menu-category">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl font-bold text-amber-700">Cannoli Siciliani</h3>
+                            <span class="text-amber-700 font-bold text-lg">$9.00</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">Crispy pastry shells filled with sweet ricotta and chocolate chips</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-lg menu-category">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl font-bold text-amber-700">Torta della Nonna</h3>
+                            <span class="text-amber-700 font-bold text-lg">$8.00</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">Grandmother's cake with pastry cream, pine nuts, and powdered sugar</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-lg menu-category">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl font-bold text-amber-700">Gelato Artigianale</h3>
+                            <span class="text-amber-700 font-bold text-lg">$6.50</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">House-made gelato - ask your server for today's flavors</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-lg menu-category">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl font-bold text-amber-700">Affogato</h3>
+                            <span class="text-amber-700 font-bold text-lg">$7.00</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">Vanilla gelato "drowned" in a shot of hot espresso</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Bevande Section -->
+            <section id="bevande" class="menu-section">
+                <div class="flex items-center mb-8">
+                    <h2 class="text-3xl font-bold text-amber-800 font-serif">Bevande</h2>
+                    <div class="ml-4 flex-grow h-px bg-amber-200"></div>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="bg-white p-6 rounded-xl shadow-lg menu-category">
+                        <h3 class="text-xl font-bold text-amber-700 mb-4">Caffè</h3>
+                        <div class="space-y-4">
+                            <div class="flex justify-between">
+                                <span class="text-gray-700">Espresso</span>
+                                <span class="text-amber-700 font-bold">$3.50</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-700">Cappuccino</span>
+                                <span class="text-amber-700 font-bold">$4.50</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-700">Caffè Latte</span>
+                                <span class="text-amber-700 font-bold">$5.00</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-700">Macchiato</span>
+                                <span class="text-amber-700 font-bold">$4.00</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-lg menu-category">
+                        <h3 class="text-xl font-bold text-amber-700 mb-4">Soft Drinks & Juices</h3>
+                        <div class="space-y-4">
+                            <div class="flex justify-between">
+                                <span class="text-gray-700">Italian Sodas</span>
+                                <span class="text-amber-700 font-bold">$4.50</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-700">Fresh Orange Juice</span>
+                                <span class="text-amber-700 font-bold">$5.00</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-700">San Pellegrino</span>
+                                <span class="text-amber-700 font-bold">$4.00</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-700">Limonata</span>
+                                <span class="text-amber-700 font-bold">$5.50</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Vini Section -->
+            <section id="vini" class="menu-section">
+                <div class="flex items-center mb-8">
+                    <h2 class="text-3xl font-bold text-amber-800 font-serif">Vini</h2>
+                    <div class="ml-4 flex-grow h-px bg-amber-200"></div>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="bg-white p-6 rounded-xl shadow-lg menu-category">
+                        <h3 class="text-xl font-bold text-amber-700 mb-4">White Wines</h3>
+                        <div class="space-y-4">
+                            <div class="flex justify-between">
+                                <div>
+                                    <span class="font-medium">Pinot Grigio, Santa Margherita</span>
+                                    <p class="text-sm text-gray-600">Veneto, Italy</p>
+                                </div>
+                                <span class="text-amber-700 font-bold">$42.00</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <div>
+                                    <span class="font-medium">Vermentino, Pala</span>
+                                    <p class="text-sm text-gray-600">Sardinia, Italy</p>
+                                </div>
+                                <span class="text-amber-700 font-bold">$38.00</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <div>
+                                    <span class="font-medium">Gavi di Gavi, La Scolca</span>
+                                    <p class="text-sm text-gray-600">Piedmont, Italy</p>
+                                </div>
+                                <span class="text-amber-700 font-bold">$48.00</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <div>
+                                    <span class="font-medium">Soave Classico, Pieropan</span>
+                                    <p class="text-sm text-gray-600">Veneto, Italy</p>
+                                </div>
+                                <span class="text-amber-700 font-bold">$40.00</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-lg menu-category">
+                        <h3 class="text-xl font-bold text-amber-700 mb-4">Red Wines</h3>
+                        <div class="space-y-4">
+                            <div class="flex justify-between">
+                                <div>
+                                    <span class="font-medium">Chianti Classico, Antinori</span>
+                                    <p class="text-sm text-gray-600">Tuscany, Italy</p>
+                                </div>
+                                <span class="text-amber-700 font-bold">$45.00</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <div>
+                                    <span class="font-medium">Barolo, Giacomo Conterno</span>
+                                    <p class="text-sm text-gray-600">Piedmont, Italy</p>
+                                </div>
+                                <span class="text-amber-700 font-bold">$85.00</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <div>
+                                    <span class="font-medium">Brunello di Montalcino, Banfi</span>
+                                    <p class="text-sm text-gray-600">Tuscany, Italy</p>
+                                </div>
+                                <span class="text-amber-700 font-bold">$72.00</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <div>
+                                    <span class="font-medium">Amarone della Valpolicella, Allegrini</span>
+                                    <p class="text-sm text-gray-600">Veneto, Italy</p>
+                                </div>
+                                <span class="text-amber-700 font-bold">$78.00</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-amber-900 text-white py-12 mt-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4 font-serif">Bella Tavola</h3>
+                    <p class="text-amber-200">Authentic Italian cuisine crafted with passion and tradition since 1995.</p>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-amber-200 hover:text-white transition duration-300">Home</a></li>
+                        <li><a href="index.html#about" class="text-amber-200 hover:text-white transition duration-300">About Us</a></li>
+                        <li><a href="menu.html" class="text-amber-200 hover:text-white transition duration-300">Menu</a></li>
+                        <li><a href="index.html#gallery" class="text-amber-200 hover:text-white transition duration-300">Gallery</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Contact Info</h4>
+                    <ul class="space-y-2 text-amber-200">
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt mt-1 mr-2 text-sm"></i>
+                            <span>123 Trattoria Street, Little Italy, NY</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-phone mt-1 mr-2 text-sm"></i>
+                            <span>(555) 123-4567</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-envelope mt-1 mr-2 text-sm"></i>
+                            <span>info@bellatavola.com</span>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Opening Hours</h4>
+                    <ul class="space-y-2 text-amber-200">
+                        <li class="flex justify-between">
+                            <span>Mon - Thu</span>
+                            <span>11:00 AM - 10:00 PM</span>
+                        </li>
+                        <li class="flex justify-between">
+                            <span>Fri - Sat</span>
+                            <span>11:00 AM - 11:00 PM</span>
+                        </li>
+                        <li class="flex justify-between">
+                            <span>Sunday</span>
+                            <span>12:00 PM - 9:00 PM</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-amber-800 mt-8 pt-8 text-center text-amber-300">
+                <p>&copy; 2023 Bella Tavola. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.querySelector('.mobile-menu-button').addEventListener('click', function() {
+            document.querySelector('.mobile-menu').classList.toggle('hidden');
+        });
+
+        // Menu navigation highlighting
+        const menuSections = document.querySelectorAll('.menu-section');
+        const menuNavButtons = document.querySelectorAll('.menu-nav-btn');
+        
+        function highlightMenuSection() {
+            let currentSection = '';
+            
+            menuSections.forEach(section => {
+                const sectionTop = section.offsetTop - 100;
+                const sectionHeight = section.clientHeight;
+                if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
+                    currentSection = section.getAttribute('id');
+                }
+            });
+            
+            menuNavButtons.forEach(btn => {
+                btn.classList.remove('active-category');
+                if (btn.getAttribute('href').substring(1) === currentSection) {
+                    btn.classList.add('active-category');
+                }
+            });
+        }
+        
+        window.addEventListener('scroll', highlightMenuSection);
+        
+        // Initialize highlighting on page load
+        highlightMenuSection();
+    </script>
 </body>
 </html>
