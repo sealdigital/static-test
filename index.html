@@ -4,75 +4,449 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bella Tavola | Authentic Italian Cuisine</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
-    <script src="https://unpkg.com/feather-icons"></script>
-    <script src="components/navbar.js"></script>
-    <script src="components/footer.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Source+Sans+Pro:wght@300;400;600&display=swap');
+        
+        body {
+            font-family: 'Source Sans Pro', sans-serif;
+        }
+        
+        .font-serif {
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .hero-bg {
+            background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .menu-category {
+            transition: transform 0.3s ease;
+        }
+        
+        .menu-category:hover {
+            transform: translateY(-5px);
+        }
+        
+        .reservation-form input, .reservation-form select {
+            border: 1px solid #d1d5db;
+            border-radius: 0.375rem;
+            padding: 0.5rem 0.75rem;
+            width: 100%;
+        }
+    </style>
 </head>
-<body class="bg-amber-50 font-serif">
-    <custom-navbar></custom-navbar>
+<body class="bg-amber-50">
+    <!-- Navigation -->
+    <nav class="bg-amber-800 text-white shadow-lg sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <a href="index.html" class="flex-shrink-0 flex items-center">
+                        <i class="fas fa-utensils text-amber-300 text-2xl mr-2"></i>
+                        <span class="font-serif text-xl font-bold">Bella Tavola</span>
+                    </a>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-4">
+                        <a href="index.html" class="px-3 py-2 rounded-md text-sm font-medium hover:bg-amber-700 transition duration-300">Home</a>
+                        <a href="#about" class="px-3 py-2 rounded-md text-sm font-medium hover:bg-amber-700 transition duration-300">About</a>
+                        <a href="#menu" class="px-3 py-2 rounded-md text-sm font-medium hover:bg-amber-700 transition duration-300">Menu</a>
+                        <a href="#gallery" class="px-3 py-2 rounded-md text-sm font-medium hover:bg-amber-700 transition duration-300">Gallery</a>
+                        <a href="#contact" class="px-3 py-2 rounded-md text-sm font-medium hover:bg-amber-700 transition duration-300">Contact</a>
+                        <a href="#reservations" class="px-3 py-2 rounded-md text-sm font-medium bg-amber-600 hover:bg-amber-500 transition duration-300">Reservations</a>
+                    </div>
+                </div>
+                <div class="md:hidden">
+                    <button type="button" class="mobile-menu-button inline-flex items-center justify-center p-2 rounded-md text-amber-100 hover:text-white hover:bg-amber-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile menu -->
+        <div class="mobile-menu hidden md:hidden">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-amber-800">
+                <a href="index.html" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-amber-700">Home</a>
+                <a href="#about" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-amber-700">About</a>
+                <a href="#menu" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-amber-700">Menu</a>
+                <a href="#gallery" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-amber-700">Gallery</a>
+                <a href="#contact" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-amber-700">Contact</a>
+                <a href="#reservations" class="block px-3 py-2 rounded-md text-base font-medium bg-amber-600 hover:bg-amber-500">Reservations</a>
+            </div>
+        </div>
+    </nav>
 
-    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <main>
         <!-- Hero Section -->
-        <section class="relative h-96 flex items-center justify-center bg-cover bg-center rounded-xl overflow-hidden shadow-lg mb-16" style="background-image: url('http://static.photos/food/1200x630/42');">
-            <div class="absolute inset-0 bg-black bg-opacity-40"></div>
-            <div class="relative z-10 text-center px-4">
-                <h1 class="text-5xl md:text-6xl font-bold text-white mb-4">Bella Tavola</h1>
+        <section class="hero-bg h-96 flex items-center justify-center rounded-xl overflow-hidden shadow-lg mb-16 mt-6 mx-4">
+            <div class="text-center px-4">
+                <h1 class="text-5xl md:text-6xl font-bold text-white mb-4 font-serif">Bella Tavola</h1>
                 <p class="text-xl md:text-2xl text-amber-100 mb-8">Authentic Italian flavors in the heart of the city</p>
-                <a href="menu.html" class="inline-block bg-amber-600 hover:bg-amber-700 text-white font-bold py-3 px-6 rounded-full transition duration-300 transform hover:scale-105">View Our Menu</a>
+                <a href="#menu" class="inline-block bg-amber-600 hover:bg-amber-700 text-white font-bold py-3 px-6 rounded-full transition duration-300 transform hover:scale-105">View Our Menu</a>
             </div>
         </section>
 
         <!-- About Section -->
-        <section class="mb-16">
+        <section id="about" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16">
             <div class="flex flex-col md:flex-row items-center gap-8">
                 <div class="md:w-1/2">
-                    <img src="http://static.photos/restaurant/1024x576/23" alt="Restaurant interior" class="rounded-xl shadow-lg w-full h-auto">
+                    <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" alt="Restaurant interior" class="rounded-xl shadow-lg w-full h-auto">
                 </div>
                 <div class="md:w-1/2">
-                    <h2 class="text-3xl font-bold text-amber-800 mb-4">Our Story</h2>
+                    <h2 class="text-3xl font-bold text-amber-800 mb-4 font-serif">Our Story</h2>
                     <p class="text-gray-700 mb-4">Founded in 1995 by Chef Giovanni Rossi, Bella Tavola brings the authentic taste of Italy to your table. Our recipes have been passed down through generations, using only the freshest ingredients imported directly from Italy.</p>
                     <p class="text-gray-700 mb-6">Every dish is prepared with love and passion, just like nonna used to make. From our wood-fired pizzas to homemade pastas, we invite you to experience true Italian hospitality.</p>
-                    <a href="contact.html" class="text-amber-600 hover:text-amber-800 font-semibold flex items-center">
+                    <a href="#contact" class="text-amber-600 hover:text-amber-800 font-semibold flex items-center">
                         <span>Visit Us</span>
-                        <i data-feather="arrow-right" class="ml-2 w-5 h-5"></i>
+                        <i class="fas fa-arrow-right ml-2 w-5 h-5"></i>
                     </a>
                 </div>
             </div>
         </section>
 
         <!-- Specialties Section -->
-        <section class="mb-16">
-            <h2 class="text-3xl font-bold text-center text-amber-800 mb-12">Our Specialties</h2>
+        <section id="menu" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16">
+            <h2 class="text-3xl font-bold text-center text-amber-800 mb-12 font-serif">Our Specialties</h2>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-xl transition duration-300">
+                <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-xl transition duration-300 menu-category">
                     <div class="h-48 overflow-hidden rounded-lg mb-4">
-                        <img src="http://static.photos/food/640x360/5" alt="Pasta" class="w-full h-full object-cover">
+                        <img src="https://images.unsplash.com/photo-1551183053-bf91a1d81141?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1332&q=80" alt="Pasta" class="w-full h-full object-cover">
                     </div>
-                    <h3 class="text-xl font-bold text-amber-700 mb-2">Homemade Pasta</h3>
+                    <h3 class="text-xl font-bold text-amber-700 mb-2 font-serif">Homemade Pasta</h3>
                     <p class="text-gray-600">Handcrafted daily using traditional techniques and premium semolina flour.</p>
                 </div>
-                <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-xl transition duration-300">
+                <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-xl transition duration-300 menu-category">
                     <div class="h-48 overflow-hidden rounded-lg mb-4">
-                        <img src="http://static.photos/food/640x360/7" alt="Pizza" class="w-full h-full object-cover">
+                        <img src="https://images.unsplash.com/photo-1604068549290-dea0e4a305ca?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" alt="Pizza" class="w-full h-full object-cover">
                     </div>
-                    <h3 class="text-xl font-bold text-amber-700 mb-2">Wood-Fired Pizza</h3>
+                    <h3 class="text-xl font-bold text-amber-700 mb-2 font-serif">Wood-Fired Pizza</h3>
                     <p class="text-gray-600">Authentic Neapolitan-style pizzas cooked in our imported Italian oven.</p>
                 </div>
-                <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-xl transition duration-300">
+                <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-xl transition duration-300 menu-category">
                     <div class="h-48 overflow-hidden rounded-lg mb-4">
-                        <img src="http://static.photos/food/640x360/9" alt="Dessert" class="w-full h-full object-cover">
+                        <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1389&q=80" alt="Dessert" class="w-full h-full object-cover">
                     </div>
-                    <h3 class="text-xl font-bold text-amber-700 mb-2">Dolci</h3>
+                    <h3 class="text-xl font-bold text-amber-700 mb-2 font-serif">Dolci</h3>
                     <p class="text-gray-600">Irresistible Italian desserts including tiramisu, cannoli, and panna cotta.</p>
+                </div>
+            </div>
+            
+            <!-- Menu Preview -->
+            <div class="mt-16 bg-white rounded-xl shadow-lg p-8">
+                <h2 class="text-3xl font-bold text-center text-amber-800 mb-8 font-serif">Menu Highlights</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div>
+                        <h3 class="text-xl font-bold text-amber-700 mb-4 font-serif border-b border-amber-200 pb-2">Antipasti</h3>
+                        <div class="space-y-4">
+                            <div class="flex justify-between">
+                                <div>
+                                    <h4 class="font-semibold">Bruschetta Classica</h4>
+                                    <p class="text-sm text-gray-600">Toasted bread with tomatoes, garlic, and basil</p>
+                                </div>
+                                <span class="text-amber-700 font-bold">$9.50</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <div>
+                                    <h4 class="font-semibold">Caprese Salad</h4>
+                                    <p class="text-sm text-gray-600">Fresh mozzarella, tomatoes, and basil</p>
+                                </div>
+                                <span class="text-amber-700 font-bold">$12.00</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold text-amber-700 mb-4 font-serif border-b border-amber-200 pb-2">Pasta</h3>
+                        <div class="space-y-4">
+                            <div class="flex justify-between">
+                                <div>
+                                    <h4 class="font-semibold">Spaghetti Carbonara</h4>
+                                    <p class="text-sm text-gray-600">Classic Roman pasta with eggs, cheese, pancetta</p>
+                                </div>
+                                <span class="text-amber-700 font-bold">$18.00</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <div>
+                                    <h4 class="font-semibold">Gnocchi al Pesto</h4>
+                                    <p class="text-sm text-gray-600">Homemade potato dumplings with basil pesto</p>
+                                </div>
+                                <span class="text-amber-700 font-bold">$17.50</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center mt-8">
+                    <a href="menu.html" class="inline-block bg-amber-600 hover:bg-amber-700 text-white font-bold py-2 px-6 rounded-full transition duration-300">View Full Menu</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gallery Section -->
+        <section id="gallery" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16">
+            <h2 class="text-3xl font-bold text-center text-amber-800 mb-12 font-serif">Our Gallery</h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div class="overflow-hidden rounded-lg shadow-md">
+                    <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Dish 1" class="w-full h-48 object-cover hover:scale-110 transition duration-500">
+                </div>
+                <div class="overflow-hidden rounded-lg shadow-md">
+                    <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1480&q=80" alt="Dish 2" class="w-full h-48 object-cover hover:scale-110 transition duration-500">
+                </div>
+                <div class="overflow-hidden rounded-lg shadow-md">
+                    <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1381&q=80" alt="Dish 3" class="w-full h-48 object-cover hover:scale-110 transition duration-500">
+                </div>
+                <div class="overflow-hidden rounded-lg shadow-md">
+                    <img src="https://images.unsplash.com/photo-1565958011703-44f9829ba187?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1365&q=80" alt="Dish 4" class="w-full h-48 object-cover hover:scale-110 transition duration-500">
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section class="bg-amber-800 text-white py-16 mb-16">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-3xl font-bold text-center mb-12 font-serif">What Our Guests Say</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="bg-amber-700 p-6 rounded-xl">
+                        <div class="flex items-center mb-4">
+                            <i class="fas fa-star text-amber-300 mr-1"></i>
+                            <i class="fas fa-star text-amber-300 mr-1"></i>
+                            <i class="fas fa-star text-amber-300 mr-1"></i>
+                            <i class="fas fa-star text-amber-300 mr-1"></i>
+                            <i class="fas fa-star text-amber-300"></i>
+                        </div>
+                        <p class="italic mb-4">"The best Italian food I've had outside of Italy! The pasta is perfectly al dente and the sauces are incredible."</p>
+                        <p class="font-semibold">- Maria S.</p>
+                    </div>
+                    <div class="bg-amber-700 p-6 rounded-xl">
+                        <div class="flex items-center mb-4">
+                            <i class="fas fa-star text-amber-300 mr-1"></i>
+                            <i class="fas fa-star text-amber-300 mr-1"></i>
+                            <i class="fas fa-star text-amber-300 mr-1"></i>
+                            <i class="fas fa-star text-amber-300 mr-1"></i>
+                            <i class="fas fa-star text-amber-300"></i>
+                        </div>
+                        <p class="italic mb-4">"The atmosphere is cozy and authentic. We come here for every special occasion. The tiramisu is to die for!"</p>
+                        <p class="font-semibold">- Robert T.</p>
+                    </div>
+                    <div class="bg-amber-700 p-6 rounded-xl">
+                        <div class="flex items-center mb-4">
+                            <i class="fas fa-star text-amber-300 mr-1"></i>
+                            <i class="fas fa-star text-amber-300 mr-1"></i>
+                            <i class="fas fa-star text-amber-300 mr-1"></i>
+                            <i class="fas fa-star text-amber-300 mr-1"></i>
+                            <i class="fas fa-star text-amber-300"></i>
+                        </div>
+                        <p class="italic mb-4">"The wood-fired pizza rivals what I had in Naples. The crust is perfectly charred and the ingredients are fresh."</p>
+                        <p class="font-semibold">- James L.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Reservations Section -->
+        <section id="reservations" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16">
+            <div class="bg-white rounded-xl shadow-lg p-8">
+                <h2 class="text-3xl font-bold text-center text-amber-800 mb-8 font-serif">Make a Reservation</h2>
+                <form class="reservation-form grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <label for="name" class="block text-gray-700 mb-2">Full Name</label>
+                        <input type="text" id="name" required>
+                    </div>
+                    <div>
+                        <label for="email" class="block text-gray-700 mb-2">Email</label>
+                        <input type="email" id="email" required>
+                    </div>
+                    <div>
+                        <label for="phone" class="block text-gray-700 mb-2">Phone Number</label>
+                        <input type="tel" id="phone" required>
+                    </div>
+                    <div>
+                        <label for="date" class="block text-gray-700 mb-2">Date</label>
+                        <input type="date" id="date" required>
+                    </div>
+                    <div>
+                        <label for="time" class="block text-gray-700 mb-2">Time</label>
+                        <select id="time" required>
+                            <option value="">Select a time</option>
+                            <option value="17:00">5:00 PM</option>
+                            <option value="17:30">5:30 PM</option>
+                            <option value="18:00">6:00 PM</option>
+                            <option value="18:30">6:30 PM</option>
+                            <option value="19:00">7:00 PM</option>
+                            <option value="19:30">7:30 PM</option>
+                            <option value="20:00">8:00 PM</option>
+                            <option value="20:30">8:30 PM</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="guests" class="block text-gray-700 mb-2">Number of Guests</label>
+                        <select id="guests" required>
+                            <option value="">Select number</option>
+                            <option value="1">1 person</option>
+                            <option value="2">2 people</option>
+                            <option value="3">3 people</option>
+                            <option value="4">4 people</option>
+                            <option value="5">5 people</option>
+                            <option value="6">6 people</option>
+                            <option value="7">7 people</option>
+                            <option value="8">8 people</option>
+                            <option value="9">9+ people</option>
+                        </select>
+                    </div>
+                    <div class="md:col-span-2">
+                        <label for="special-requests" class="block text-gray-700 mb-2">Special Requests</label>
+                        <textarea id="special-requests" rows="4" class="w-full border border-gray-300 rounded-md p-2"></textarea>
+                    </div>
+                    <div class="md:col-span-2 text-center">
+                        <button type="submit" class="bg-amber-600 hover:bg-amber-700 text-white font-bold py-3 px-8 rounded-full transition duration-300">Book Table</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16">
+            <h2 class="text-3xl font-bold text-center text-amber-800 mb-12 font-serif">Visit Us</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="bg-white p-6 rounded-xl shadow-lg">
+                    <h3 class="text-2xl font-bold text-amber-700 mb-6 font-serif">Contact Information</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-start">
+                            <i class="fas fa-map-marker-alt text-amber-600 mt-1 mr-3"></i>
+                            <div>
+                                <h4 class="font-semibold">Address</h4>
+                                <p class="text-gray-600">123 Trattoria Street<br>Little Italy, NY 10012</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <i class="fas fa-phone text-amber-600 mt-1 mr-3"></i>
+                            <div>
+                                <h4 class="font-semibold">Phone</h4>
+                                <p class="text-gray-600">(555) 123-4567</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <i class="fas fa-envelope text-amber-600 mt-1 mr-3"></i>
+                            <div>
+                                <h4 class="font-semibold">Email</h4>
+                                <p class="text-gray-600">info@bellatavola.com</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <h3 class="text-2xl font-bold text-amber-700 mt-8 mb-4 font-serif">Opening Hours</h3>
+                    <div class="space-y-2">
+                        <div class="flex justify-between">
+                            <span class="font-medium">Monday - Thursday</span>
+                            <span class="text-gray-600">11:00 AM - 10:00 PM</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="font-medium">Friday - Saturday</span>
+                            <span class="text-gray-600">11:00 AM - 11:00 PM</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="font-medium">Sunday</span>
+                            <span class="text-gray-600">12:00 PM - 9:00 PM</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-white p-6 rounded-xl shadow-lg">
+                    <h3 class="text-2xl font-bold text-amber-700 mb-6 font-serif">Find Us</h3>
+                    <div class="h-80 bg-gray-200 rounded-lg overflow-hidden">
+                        <!-- Map placeholder -->
+                        <div class="w-full h-full flex items-center justify-center bg-amber-100">
+                            <div class="text-center">
+                                <i class="fas fa-map-marked-alt text-amber-600 text-5xl mb-4"></i>
+                                <p class="text-amber-800 font-semibold">Interactive Map</p>
+                                <p class="text-gray-600 text-sm mt-2">123 Trattoria Street, Little Italy</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
     </main>
 
-    <custom-footer></custom-footer>
-    <script>feather.replace();</script>
+    <!-- Footer -->
+    <footer class="bg-amber-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4 font-serif">Bella Tavola</h3>
+                    <p class="text-amber-200">Authentic Italian cuisine crafted with passion and tradition since 1995.</p>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-amber-200 hover:text-white transition duration-300">Home</a></li>
+                        <li><a href="#about" class="text-amber-200 hover:text-white transition duration-300">About Us</a></li>
+                        <li><a href="#menu" class="text-amber-200 hover:text-white transition duration-300">Menu</a></li>
+                        <li><a href="#gallery" class="text-amber-200 hover:text-white transition duration-300">Gallery</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Contact Info</h4>
+                    <ul class="space-y-2 text-amber-200">
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt mt-1 mr-2 text-sm"></i>
+                            <span>123 Trattoria Street, Little Italy, NY</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-phone mt-1 mr-2 text-sm"></i>
+                            <span>(555) 123-4567</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-envelope mt-1 mr-2 text-sm"></i>
+                            <span>info@bellatavola.com</span>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Follow Us</h4>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-amber-200 hover:text-white transition duration-300">
+                            <i class="fab fa-facebook-f text-xl"></i>
+                        </a>
+                        <a href="#" class="text-amber-200 hover:text-white transition duration-300">
+                            <i class="fab fa-instagram text-xl"></i>
+                        </a>
+                        <a href="#" class="text-amber-200 hover:text-white transition duration-300">
+                            <i class="fab fa-twitter text-xl"></i>
+                        </a>
+                    </div>
+                    <div class="mt-6">
+                        <h5 class="font-semibold mb-2">Newsletter</h5>
+                        <div class="flex">
+                            <input type="email" placeholder="Your email" class="px-3 py-2 rounded-l text-gray-800 w-full">
+                            <button class="bg-amber-600 hover:bg-amber-500 px-4 rounded-r transition duration-300">
+                                <i class="fas fa-paper-plane"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-amber-800 mt-8 pt-8 text-center text-amber-300">
+                <p>&copy; 2023 Bella Tavola. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.querySelector('.mobile-menu-button').addEventListener('click', function() {
+            document.querySelector('.mobile-menu').classList.toggle('hidden');
+        });
+
+        // Form submission
+        document.querySelector('.reservation-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your reservation! We will contact you shortly to confirm.');
+            this.reset();
+        });
+    </script>
 </body>
 </html>
